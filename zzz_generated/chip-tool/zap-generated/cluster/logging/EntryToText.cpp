@@ -6615,6 +6615,8 @@ char const * DeviceTypeIdToText(chip::DeviceTypeId id)
         return "Oven";
     case 0x0000007C:
         return "Laundry Dryer";
+    case 0x0000007D:
+        return "Humidifier/Dehumidifier";
     case 0x00000090:
         return "Network Infrastructure Manager";
     case 0x00000091:
@@ -6641,6 +6643,10 @@ char const * DeviceTypeIdToText(chip::DeviceTypeId id)
         return "Color Temperature Light";
     case 0x0000010D:
         return "Extended Color Light";
+    case 0x0000010F:
+        return "Mounted On/Off Control";
+    case 0x00000110:
+        return "Mounted Dimmable Load Control";
     case 0x00000202:
         return "Window Covering";
     case 0x00000203:
