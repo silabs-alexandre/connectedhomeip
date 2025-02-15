@@ -574,6 +574,8 @@ limitations under the License.
                 <requireCommand>RecallScene</requireCommand>
                 <requireCommand>GetSceneMembership</requireCommand>
                 <requireCommand>GetSceneMembershipResponse</requireCommand>
+                <requireCommand>CopyScene</requireCommand>
+                <requireCommand>CopySceneResponse</requireCommand>
             </include>
             <include cluster="On/Off" client="false" server="true" clientLocked="true" serverLocked="true">
                 <features>
@@ -706,6 +708,8 @@ limitations under the License.
                 <requireCommand>RecallScene</requireCommand>
                 <requireCommand>GetSceneMembership</requireCommand>
                 <requireCommand>GetSceneMembershipResponse</requireCommand>
+                <requireCommand>CopyScene</requireCommand>
+                <requireCommand>CopySceneResponse</requireCommand>
             </include>
             <include cluster="On/Off" client="false" server="true" clientLocked="true" serverLocked="true">
                 <features>
@@ -799,6 +803,8 @@ limitations under the License.
                 <requireCommand>RecallScene</requireCommand>
                 <requireCommand>GetSceneMembership</requireCommand>
                 <requireCommand>GetSceneMembershipResponse</requireCommand>
+                <requireCommand>CopyScene</requireCommand>
+                <requireCommand>CopySceneResponse</requireCommand>
             </include>
             <include cluster="On/Off" client="false" server="true" clientLocked="true" serverLocked="true">
                 <features>
@@ -840,6 +846,147 @@ limitations under the License.
                 <requireCommand>MoveWithOnOff</requireCommand>
                 <requireCommand>StepWithOnOff</requireCommand>
                 <requireCommand>StopWithOnOff</requireCommand>
+            </include>
+        </clusters>
+    </deviceType>
+    <deviceType>
+        <name>MA-mountedonoffcontrol</name>
+        <domain>CHIP</domain>
+        <typeName>Mounted On/Off Control</typeName>
+        <profileId editable="false">0x0103</profileId>
+        <deviceId editable="false">0x010F</deviceId>
+        <class>Simple</class>
+        <scope>Endpoint</scope>
+        <clusters>
+            <include cluster="Groups" client="false" server="true" clientLocked="true" serverLocked="true"></include>
+            <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
+                <requireCommand>TriggerEffect</requireCommand>
+            </include>
+            <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true"></include>
+            <include cluster="Level Control" client="false" server="false" clientLocked="true" serverLocked="false">
+                <features>
+                    <feature code="LT" name="Lighting">
+                    <mandatoryConform/>
+                    </feature>
+                    <feature code="OO" name="OnOff">
+                    <mandatoryConform/>
+                    </feature>
+                </features>
+                <requireAttribute>CURRENT_LEVEL</requireAttribute>
+                <requireAttribute>OPTIONS</requireAttribute>
+                <requireAttribute>LEVEL_CONTROL_REMAINING_TIME</requireAttribute>
+                <requireAttribute>ON_LEVEL</requireAttribute>
+                <requireAttribute>START_UP_CURRENT_LEVEL</requireAttribute>
+                <requireCommand>MoveToLevel</requireCommand>
+                <requireCommand>Move</requireCommand>
+                <requireCommand>Step</requireCommand>
+                <requireCommand>Stop</requireCommand>
+                <requireCommand>MoveToLevelWithOnOff</requireCommand>
+                <requireCommand>MoveWithOnOff</requireCommand>
+                <requireCommand>StepWithOnOff</requireCommand>
+                <requireCommand>StopWithOnOff</requireCommand>
+            </include>
+            <include cluster="On/Off" client="false" server="true" clientLocked="true" serverLocked="true">
+                <features>
+                    <feature code="LT" name="Lighting">
+                    <mandatoryConform/>
+                    </feature>
+                </features>
+                <requireAttribute>ON_OFF</requireAttribute>
+                <requireAttribute>GLOBAL_SCENE_CONTROL</requireAttribute>
+                <requireAttribute>ON_TIME</requireAttribute>
+                <requireAttribute>OFF_WAIT_TIME</requireAttribute>
+                <requireAttribute>START_UP_ON_OFF</requireAttribute>
+                <requireCommand>Off</requireCommand>
+                <requireCommand>On</requireCommand>
+                <requireCommand>Toggle</requireCommand>
+                <requireCommand>OffWithEffect</requireCommand>
+                <requireCommand>OnWithRecallGlobalScene</requireCommand>
+                <requireCommand>OnWithTimedOff</requireCommand>
+            </include>
+            <include cluster="Scenes Management" client="false" server="true" clientLocked="true" serverLocked="false">
+                <requireAttribute>SCENE_NAME_SUPPORT</requireAttribute>
+                <requireCommand>AddScene</requireCommand>
+                <requireCommand>AddSceneResponse</requireCommand>
+                <requireCommand>ViewScene</requireCommand>
+                <requireCommand>ViewSceneResponse</requireCommand>
+                <requireCommand>RemoveScene</requireCommand>
+                <requireCommand>RemoveSceneResponse</requireCommand>
+                <requireCommand>RemoveAllScenes</requireCommand>
+                <requireCommand>RemoveAllScenesResponse</requireCommand>
+                <requireCommand>StoreScene</requireCommand>
+                <requireCommand>StoreSceneResponse</requireCommand>
+                <requireCommand>RecallScene</requireCommand>
+                <requireCommand>GetSceneMembership</requireCommand>
+                <requireCommand>GetSceneMembershipResponse</requireCommand>
+                <requireCommand>CopyScene</requireCommand>
+                <requireCommand>CopySceneResponse</requireCommand>
+            </include>
+            <include cluster="Occupancy Sensing" client="false" server="false" clientLocked="false" serverLocked="true"></include>
+        </clusters>
+    </deviceType>
+    <deviceType>
+        <name>MA-mounteddimmableloadcontrol</name>
+        <domain>CHIP</domain>
+        <typeName>Mounted Dimmable Load Control</typeName>
+        <profileId editable="false">0x0103</profileId>
+        <deviceId editable="false">0x0110</deviceId>
+        <class>Simple</class>
+        <scope>Endpoint</scope>
+        <clusters>
+            <include cluster="Groups" client="false" server="true" clientLocked="true" serverLocked="true"></include>
+            <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
+                <requireCommand>TriggerEffect</requireCommand>
+            </include>
+            <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true"></include>
+            <include cluster="Level Control" client="false" server="true" clientLocked="true" serverLocked="true">
+                <features>
+                    <feature code="LT" name="Lighting">
+                    <mandatoryConform/>
+                    </feature>
+                    <feature code="OO" name="OnOff">
+                    <mandatoryConform/>
+                    </feature>
+                </features>
+                <requireAttribute>CURRENT_LEVEL</requireAttribute>
+                <requireAttribute>OPTIONS</requireAttribute>
+                <requireAttribute>LEVEL_CONTROL_REMAINING_TIME</requireAttribute>
+                <requireAttribute>ON_LEVEL</requireAttribute>
+                <requireAttribute>START_UP_CURRENT_LEVEL</requireAttribute>
+                <requireCommand>MoveToLevel</requireCommand>
+                <requireCommand>Move</requireCommand>
+                <requireCommand>Step</requireCommand>
+                <requireCommand>Stop</requireCommand>
+                <requireCommand>MoveToLevelWithOnOff</requireCommand>
+                <requireCommand>MoveWithOnOff</requireCommand>
+                <requireCommand>StepWithOnOff</requireCommand>
+                <requireCommand>StopWithOnOff</requireCommand>
+            </include>
+            <include cluster="Occupancy Sensing" client="false" server="false" clientLocked="false" serverLocked="true"></include>
+            <include cluster="On/Off" client="false" server="true" clientLocked="true" serverLocked="true">
+                <features>
+                    <feature code="LT" name="Lighting">
+                    <mandatoryConform/>
+                    </feature>
+                </features>
+            </include>
+            <include cluster="Scenes Management" client="false" server="true" clientLocked="true" serverLocked="false">
+                <requireAttribute>SCENE_NAME_SUPPORT</requireAttribute>
+                <requireCommand>AddScene</requireCommand>
+                <requireCommand>AddSceneResponse</requireCommand>
+                <requireCommand>ViewScene</requireCommand>
+                <requireCommand>ViewSceneResponse</requireCommand>
+                <requireCommand>RemoveScene</requireCommand>
+                <requireCommand>RemoveSceneResponse</requireCommand>
+                <requireCommand>RemoveAllScenes</requireCommand>
+                <requireCommand>RemoveAllScenesResponse</requireCommand>
+                <requireCommand>StoreScene</requireCommand>
+                <requireCommand>StoreSceneResponse</requireCommand>
+                <requireCommand>RecallScene</requireCommand>
+                <requireCommand>GetSceneMembership</requireCommand>
+                <requireCommand>GetSceneMembershipResponse</requireCommand>
+                <requireCommand>CopyScene</requireCommand>
+                <requireCommand>CopySceneResponse</requireCommand>
             </include>
         </clusters>
     </deviceType>
@@ -943,10 +1090,10 @@ limitations under the License.
                 <requireAttribute>Capacity</requireAttribute>
                 <requireAttribute>OperationMode</requireAttribute>
             </include>
-            <include cluster="Level Control" client="false" server="false" clientLocked="true" serverLocked="false"></include>
-            <include cluster="Temperature Measurement" client="false" server="false" clientLocked="true" serverLocked="false"></include>
-            <include cluster="Pressure Measurement" client="false" server="false" clientLocked="true" serverLocked="false"></include>
-            <include cluster="Flow Measurement" client="false" server="false" clientLocked="true" serverLocked="false"></include>
+            <include cluster="Level Control" client="false" server="false" clientLocked="false" serverLocked="false"></include>
+            <include cluster="Temperature Measurement" client="false" server="false" clientLocked="false" serverLocked="false"></include>
+            <include cluster="Pressure Measurement" client="false" server="false" clientLocked="false" serverLocked="false"></include>
+            <include cluster="Flow Measurement" client="false" server="false" clientLocked="false" serverLocked="false"></include>
             <include cluster="Occupancy Sensing" client="false" server="false" clientLocked="false" serverLocked="true" />
         </clusters>
     </deviceType>
